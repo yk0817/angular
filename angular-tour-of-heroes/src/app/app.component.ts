@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
-
-export class AppComponent {
-  title = 'Tour of Heroes';
-  hero = 'Windstorm';
-}
+import { Hero } from './hero';
 
 @Component({
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div><label>id: </label>{{hero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </div>
+    <h2>My favorite hero is: {{myHero.name}}</h2>
+    <p>Heroes:</p>
+    <ul>
+      <li *ngFor="let hero of heroes">
+        {{ hero.name }}
+      </li>
+    </ul>
+    <p *ngIf="heroes.length > 3">there are many heroes</p>
     `
 })
+export class AppComponent {
+  title = 'Tour of Heroes';
+  heroes = [
+    new Hero(1,'Windostorm'),
+    new Hero(13,'Bombasto'),
+    new Hero(15,'Magneta'),
+    new Hero(20,'Tornado')
+  ];
+  myHero = this.heroes[0];
+}
