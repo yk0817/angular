@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'calculator';
   result = 'result';
+  show_click(e: any){
+    let test;
+    console.log(this);
+    test = document.querySelector('[data-value]');
+    console.log(test);
+  }
 }
