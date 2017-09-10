@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'calculator';
   result = 'result';
+  nav_numbers = ['7','8','9','4','5','6','1','2','3','0','00','.'];
+  nav_operators = ['/','*','-','+','='];
+  nav_erases = ["CE","CA","DEL"];
   show_click(e: any){
-    let test;
     console.log(this);
-    test = document.querySelector('[data-value]');
-    console.log(test);
   }
 }
