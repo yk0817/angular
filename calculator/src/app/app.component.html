@@ -7,17 +7,17 @@
   <div class="calculator">
       <div class="display__wrap">
           <aside class="display">
-              <div id="displaySym" class="display__sym">{{result}}</div>
+              <div id="displaySym" class="display__sym">{{input_num}}</div>
               <div id="displayNum" class="display__num"></div>
           </aside>
       </div>
       <nav class="nav">
           <div class="nav__inner nav__inner--left" >
-              <div class="nav__erase" *ngFor="let e of nav_erases">
-                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--erase" (click)="new_flag(e)">{{e}}</span></div>
+              <div class="nav__erase" *ngFor="let n of nav_erases">
+                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--erase" (click)="clear_num(n)">{{n}}</span></div>
               </div>
               <div class="nav__num" *ngFor="let n of nav_numbers">
-                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--num">{{n}}</span></div>
+                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--num" (click)="show_click(n)">{{n}}</span></div>
               </div>
           </div>
           <div class="nav__inner nav__inner--right">
