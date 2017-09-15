@@ -3,7 +3,6 @@
     Welcome to {{title}}!
   </h1>
   <div style="text-align:center;">{{test}}</div>
-  <input type="button" name="some_name" (click)="show_click()">
   <div class="calculator">
       <div class="display__wrap">
           <aside class="display">
@@ -17,12 +16,12 @@
                   <div class="nav__btn__wrap"><span class="nav__btn nav__btn--erase" (click)="clear_num(n)">{{n}}</span></div>
               </div>
               <div class="nav__num" *ngFor="let n of nav_numbers">
-                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--num" (click)="show_click(n)">{{n}}</span></div>
+                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--num" (click)="num_click(n)">{{n}}</span></div>
               </div>
           </div>
           <div class="nav__inner nav__inner--right">
               <div class="nav__operator" *ngFor="let o of nav_operators">
-                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--operator">{{o}}</span></div>
+                  <div class="nav__btn__wrap"><span class="nav__btn nav__btn--operator" (click)="arithmetic_operation(o)">{{o}}</span></div>
               </div>
           </div>
       </nav>

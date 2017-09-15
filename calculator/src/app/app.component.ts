@@ -13,40 +13,48 @@ export class AppComponent {
 
   total_num = 0;
   input_num = 0; 
-  my_calc = "";
+  formula = "";
   
   nav_numbers = ['7','8','9','4','5','6','1','2','3','0','00','.'];
   nav_operators = ['/','*','-','+','='];
   nav_erases = ["C","C","C"];
+  formula_evaluate = [];
   
-  show_click(e){
-    if (this.is_operate) {
-    } if (Number(this.input_num) == 0) {
-      this.input_num += e;
+  num_click(e){
+    if (this.input_num == 0) {
+      this.input_num = e;
     }
     else {
-      console.log(Number(this.input_num));
       this.input_num += e;
     }
   }
+  
   clear_num(e){
     this.input_num = 0;
+    this.total_num = 0;
   }
   
-  
   display_num(e){
-    //console.log(typeof(this.result)); 
     this.result = e;
   }
   
-  evaluate_arithmetic_operation(e){
+  arithmetic_operation(e){
     //式を計算
-    
+    this.is_operate = !this.is_operate;
+    if ( e == "=") {
+      this.formula_evaluate.push(this.input_num);
+      this.formula = this.formula_evaluate.join(" ");
+      this.input_num = eval(this.formula);
+      this.formula_evaluate = [];
+    } else if (this.is_operate) {
+      this.formula_evaluate.push(this.input_num);
+      this.formula_evaluate.push(e);
+      this.input_num = 0;
+    } 
+    else {
+      this.formula_evaluate.push(this.input_num);
+      this.formula_evaluate.push(e);
+      this.input_num = 0;
+    }
   }
-  
-  evaluate_alphabet(e){
-    //アルファベットを評価する。
-    
-  }
-  
 }
