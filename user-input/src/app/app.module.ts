@@ -21,7 +21,7 @@ import { LoopbackComponent } from './loop-back.component';
   declarations: [
     AppComponent,
     ClickMeComponent,
-    Click2MeComponent,
+    ClickMe2Component,
     KeyUpComponent_v1,
     KeyUpComponent_v2,
     KeyUpComponent_v3,
